@@ -1,0 +1,52 @@
+@import "./font.scss";
+@import "./mixin.scss";
+
+.content {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
+
+.post {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2vh;
+  width: 25%;
+  height: auto;
+  vertical-align: middle;
+  font-style: $spoqa-han-sans;
+  box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.05),
+    0 4px 24px 0 rgba(0, 0, 33, 0.05), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+  &:hover {
+    box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.25),
+      0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.19);
+    cursor: pointer;
+  }
+
+  .thumbnail-wrap {
+    display: table-cell;
+    vertical-align: middle;
+    width: 30%;
+    .thumbnail {
+      width: 100%;
+    }
+  }
+  .post-content {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 2%;
+    .post-title-wrap {
+      font-size: 1.5vw;
+      font-weight: bold;
+      padding-bottom: 1vh;
+    }
+    .post-subtitle-wrap {
+      font-size: 1.2vw;
+      color: grey;
+    }
+    .post-name-wrap {
+      font-size: 0.8vw;
+      font-weight: lighter;
+    }
+  }
+}
