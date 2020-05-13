@@ -1,0 +1,17 @@
+@import "./font.scss";
+@import "./mixin.scss";
+
+.logo-wrap {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  .logo {
+    width: 100%;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
