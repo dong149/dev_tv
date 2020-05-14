@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import "../styles/register.scss";
-
+import urlService from "../services/urlService.js";
 const Modal = (props) => {
   const { close } = props;
   const [videoUrl, setVideoUrl] = useState("");
   const handleChange = (event) => {
     setVideoUrl(event.target.value);
+  };
+  const onSubmit = (url) => {
+    try {
+      urlService.postUrl({
+        url: url,
+        title: "dd",
+        author: "dd",
+      });
+      alert("성공적으로 등록되었습니다.");
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <React.Fragment>
@@ -24,7 +36,10 @@ const Modal = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className="modal-register-btn-wrap">
+        <div
+          className="modal-register-btn-wrap"
+          onClick={() => onSubmit(videoUrl)}
+        >
           <span>등록하기</span>
         </div>
       </div>
