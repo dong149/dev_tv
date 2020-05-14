@@ -19,7 +19,15 @@ const Content = () => {
   if (isOpen) {
     return (
       <div className="content">
-        <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} />
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/OCCpGh4ujb8"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+        {/* <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} /> */}
         <div onClick={() => setIsOpen(!isOpen)}>
           <span>닫기</span>
         </div>

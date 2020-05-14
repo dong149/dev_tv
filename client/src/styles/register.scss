@@ -1,0 +1,43 @@
+@import "./font.scss";
+@import "./mixin.scss";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  font-style: $spoqa-han-sans;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.05),
+    0 4px 24px 0 rgba(0, 0, 33, 0.05), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+  & > * {
+    &:first-child {
+      margin-top: 16px;
+    }
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .modal-img-wrap {
+    margin: 0 auto;
+    width: 40%;
+    .modal-img {
+      width: 100%;
+    }
+  }
+  .modal-title {
+  }
+  .modal-content {
+  }
+  .modal-register-btn-wrap {
+  }
+}
