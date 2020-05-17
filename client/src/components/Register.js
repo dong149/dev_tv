@@ -1,24 +1,35 @@
 import React, { useState } from "react";
 import "../styles/register.scss";
 import urlService from "../services/urlService.js";
+import urlParse from "url-parse";
+require("dotenv").config();
+
 const Modal = (props) => {
   const { close } = props;
   const [videoUrl, setVideoUrl] = useState("");
   const handleChange = (event) => {
     setVideoUrl(event.target.value);
   };
-  const onSubmit = (url) => {
+  const api_key = process.env["REACT_APP_GOOGLE_API_KEY"];
+  const onSubmit = async (url) => {
     try {
-      urlService.postUrl({
-        url: url,
-        title: "dd",
-        author: "dd",
-      });
-      alert("성공적으로 등록되었습니다.");
+      let videoId = getQueryStringObject(url);
+      if (videoId) {
+        await urlService.getVideoInfo(videoId, api_key).then((res) => {
+          urlService.postUrl({
+            url: url,
+            videoId: videoId,
+            title: res.items[0].snippet.title,
+            author: res.items[0].snippet.channelTitle,
+          });
+          alert("성공적으로 등록되었습니다.");
+        });
+      }
     } catch (err) {
       console.log(err);
     }
   };
+
   return (
     <React.Fragment>
       <div className="modal-overlay" onClick={close} />
@@ -45,6 +56,15 @@ const Modal = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+const getQueryStringObject = (url) => {
+  let res = new urlParse(url);
+  if (res.query) {
+    let temp = res.query.split("=");
+    return temp[1];
+  }
+  return "";
 };
 
 export default Modal;

@@ -14,6 +14,14 @@ const app = express();
 //dotenv
 dotenv.config();
 
+// const BASE_URL = "https://www.googleapis.com/youtube/v3/videos/";
+// const KEY = process.env["GOOGLE_API_KEY"];
+// const baseAPI = axios.create({
+//   baseURL: BASE_URL,
+//   headers: {
+//     "X-Riot-Token": TOKEN,
+//   },
+// });
 // Configure Cors
 if (process.env.NODE_ENV === "production") {
   app.use(

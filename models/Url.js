@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const urlSchema = new Schema({
   url: String,
+  videoId: String,
   title: String,
   author: String,
 });

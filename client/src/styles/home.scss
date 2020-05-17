@@ -5,6 +5,7 @@
   width: 30%;
   margin: 0 auto;
   margin-top: 1vh;
+  cursor: pointer;
   .logo {
     width: 100%;
   }
@@ -12,12 +13,13 @@
 
 .btn {
   margin: 0 auto;
+  margin-bottom: 3vh;
   width: 25%;
   font-style: $spoqa-han-sans;
   .submit-btn {
     width: 50%;
     display: inline-block;
-    font-size: 1vw;
+    font-size: 1.2vw;
     text-align: center;
     &:hover {
       font-weight: bold;
@@ -27,7 +29,7 @@
   .report-btn {
     width: 50%;
     display: inline-block;
-    font-size: 1vw;
+    font-size: 1.2vw;
     text-align: center;
     &:hover {
       font-weight: bold;

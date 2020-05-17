@@ -1,14 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "./styles/home.scss";
 import YouTube from "react-youtube";
-import Content from "./components/Content";
+import Contents from "./components/Content";
 import Modal from "./components/Register";
+import axios from "axios";
+import urlService from "./services/urlService.js";
+
+const isEmpty = function (value) {
+  if (
+    value == "" ||
+    value == null ||
+    value == undefined ||
+    (value != null && typeof value == "object" && !Object.keys(value).length)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [videoUrls, setVideoUrls] = useState({});
 
+  useEffect(() => {
+    const getVideoUrls = async () => {
+      try {
+        const temp = await urlService.getUrl();
+        setVideoUrls(temp);
+        if (!isEmpty(videoUrls)) console.log(videoUrls);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getVideoUrls();
+  }, []);
   return (
     <div>
       <div className="logo-wrap">
@@ -30,11 +58,17 @@ const App = () => {
           <span>신고하기</span>
         </div>
       </div>
+
+      {/* <Content />
       <Content />
       <Content />
       <Content />
-      <Content />
-      <Content />
+      <Content /> */}
+      {!isEmpty(videoUrls) && (
+        <>
+          <Contents videoUrls={videoUrls} />
+        </>
+      )}
     </div>
   );
 };

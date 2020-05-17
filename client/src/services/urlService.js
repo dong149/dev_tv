@@ -17,6 +17,12 @@ const urlService = {
         console.log(error);
       });
   },
+  getVideoInfo: async (videoId, api_key) => {
+    let res = await axios.get(
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${api_key}`
+    );
+    return res.data || [];
+  },
 };
 
 export default urlService;
