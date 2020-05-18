@@ -58,12 +58,6 @@ const App = () => {
           <span>신고하기</span>
         </div>
       </div>
-
-      {/* <Content />
-      <Content />
-      <Content />
-      <Content />
-      <Content /> */}
       {!isEmpty(videoUrls) && (
         <>
           <Contents videoUrls={videoUrls} />
