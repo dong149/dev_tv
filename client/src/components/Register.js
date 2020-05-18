@@ -10,6 +10,8 @@ require("dotenv").config();
 const Modal = (props) => {
   const { close } = props;
   const [videoUrl, setVideoUrl] = useState("");
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
   const handleChange = (event) => {
     setVideoUrl(event.target.value);
   };
@@ -22,8 +24,8 @@ const Modal = (props) => {
           urlService.postUrl({
             url: url,
             videoId: videoId,
-            title: res.items[0].snippet.title,
-            author: res.items[0].snippet.channelTitle,
+            title: title || res.items[0].snippet.title,
+            author: author || res.items[0].snippet.channelTitle,
           });
           alert("성공적으로 등록되었습니다.");
         });
@@ -61,23 +63,23 @@ const Modal = (props) => {
             className="modal-input"
             type="text"
             value={videoUrl}
-            onChange={handleChange}
+            onChange={(e) => setVideoUrl(e.target.value)}
             placeholder="http://"
           />
           <p className="modal-input-label">제목</p>
           <input
             className="modal-input"
             type="text"
-            value={videoUrl}
-            onChange={handleChange}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             placeholder="입력하지 않으면 자동으로 입력됩니다."
           />
           <p className="modal-input-label">작성자</p>
           <input
             className="modal-input"
             type="text"
-            value={videoUrl}
-            onChange={handleChange}
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
             placeholder="필수 항목입니다."
           />
         </div>
