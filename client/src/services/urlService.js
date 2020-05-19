@@ -17,6 +17,15 @@ const urlService = {
         console.log(error);
       });
   },
+  deleteUrl: async (id) => {
+    console.log(id);
+    const res = await axios.delete(`/api/url/${id}`, { params: { _id: id } });
+    if (res.statusText === "No Content") {
+      return true;
+    } else {
+      return false;
+    }
+  },
   getVideoInfo: async (videoId, api_key) => {
     let res = await axios.get(
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${api_key}`

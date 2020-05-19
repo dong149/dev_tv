@@ -5,6 +5,7 @@ import "./styles/home.scss";
 import YouTube from "react-youtube";
 import Contents from "./components/Content";
 import Modal from "./components/Register";
+import Categories from "./components/Categories";
 import axios from "axios";
 import urlService from "./services/urlService.js";
 
@@ -58,6 +59,7 @@ const App = () => {
           <span>신고하기</span>
         </div>
       </div>
+      <Categories />
       {!isEmpty(videoUrls) && (
         <>
           <Contents videoUrls={videoUrls} />

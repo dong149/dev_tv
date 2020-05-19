@@ -1,0 +1,36 @@
+@import "./font.scss";
+@import "./mixin.scss";
+
+.categories {
+  margin: 0 auto;
+  width: 25%;
+  .category {
+    display: inline-flex;
+    font-size: 0.8vw;
+    margin-right: 0.2vw;
+    margin-bottom: 0.5vw;
+    box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+      0 4px 24px 0 rgba(0, 0, 33, 0.02), 0 0 1px 0 rgba(0, 0, 33, 0.05);
+    padding: 4px 4px;
+    font-weight: lighter;
+
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
+        0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
+      font-weight: normal;
+    }
+  }
+  .category-click {
+    display: inline-flex;
+    font-size: 0.8vw;
+    margin-right: 0.2vw;
+    margin-bottom: 0.5vw;
+    box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
+      0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
+    font-weight: normal;
+    padding: 4px 4px;
+
+    cursor: pointer;
+  }
+}

@@ -11,4 +11,10 @@ module.exports = (app) => {
     let urls = await Url.create(req.body);
     return res.status(201).send({ error: false, urls });
   });
+  app.delete(`/api/url/:url_id`, async (req, res) => {
+    await Url.remove({ _id: req.params.url_id }, (err) => {
+      if (err) return res.status(500).json({ error: "databse failure" });
+      res.status(204).end();
+    });
+  });
 };

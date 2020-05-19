@@ -27,10 +27,12 @@ const Contents = (props) => {
   const contents = [];
   for (let i = Object.keys(videoUrls).length - 1; i >= 0; i--) {
     const videoId = videoUrls[i].videoId;
+    // console.log(videoUrls);
     // getQueryStringObject(videoUrls[i].url);
     if (videoId) {
       contents.push(
         <Content
+          id={videoUrls[i]._id}
           videoId={videoId}
           title={videoUrls[i].title}
           author={videoUrls[i].author}
@@ -42,24 +44,28 @@ const Contents = (props) => {
 };
 
 const Content = (props) => {
-  const { videoId, title, author } = props;
+  const { id, videoId, title, author } = props;
   const [isOpen, setIsOpen] = useState(false);
   const _onReady = (event) => {
     event.target.pauseVideo();
   };
   const iframeSrc = `https://www.youtube.com/embed/${videoId}`;
   const thumbnailSrc = `http://img.youtube.com/vi/${videoId}/0.jpg`;
-  // const api_key = process.env["REACT_APP_GOOGLE_API_KEY"];
-  // const getVideoInfo = async () => {
-  //   let res = await axios.get(
-  //     `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyCDowl_ehZXRoDwlEYK-PHCVuHWm7stWPc`
-  //   );
-  //   return res.data || [];
-  // };
-  // getVideoInfo().then((res) => {
-  //   console.log(res);
-  // });
 
+  // 삭제 기능입니다.
+  const onDelete = async (id) => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      await urlService.deleteUrl(id).then((res) => {
+        if (res) {
+          alert("성공적으로 삭제되었습니다.");
+          window.location.reload();
+        } else {
+          alert("삭제 중에 오류가 발생하였습니다.");
+          window.location.reload();
+        }
+      });
+    }
+  };
   if (isOpen && videoId) {
     return (
       <div className="content">
@@ -77,6 +83,9 @@ const Content = (props) => {
         {/* <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} /> */}
         <div onClick={() => setIsOpen(!isOpen)}>
           <span>닫기</span>
+        </div>
+        <div>
+          <span onClick={() => onDelete(id)}>삭제</span>
         </div>
       </div>
     );
