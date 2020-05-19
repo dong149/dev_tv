@@ -6,6 +6,7 @@ const urlSchema = new Schema({
   videoId: String,
   title: String,
   author: String,
+  categories: Array,
 });
 
 mongoose.model("urls", urlSchema);
