@@ -25,7 +25,7 @@ const isEmpty = function (value) {
 const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
-
+  const [category, setCategory] = useState("전체");
   useEffect(() => {
     const getVideoUrls = async () => {
       try {
@@ -59,10 +59,16 @@ const App = () => {
           <span>신고하기</span>
         </div>
       </div>
-      <Categories />
+      <Categories
+        onClick={(text) => {
+          setCategory(text);
+          console.log(text);
+        }}
+        currentCategory={category}
+      />
       {!isEmpty(videoUrls) && (
         <>
-          <Contents videoUrls={videoUrls} />
+          <Contents videoUrls={videoUrls} category={category} />
         </>
       )}
     </div>

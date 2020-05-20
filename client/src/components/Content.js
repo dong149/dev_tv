@@ -21,15 +21,25 @@ const opts = {
 //   }
 //   return "";
 // };
-
+const handleCategory = (categories, currentCategory) => {
+  if (currentCategory === "전체") {
+    return true;
+  }
+  for (let i = 0; i < categories.length; i++) {
+    if (categories[i] === currentCategory) {
+      return true;
+    }
+  }
+  return false;
+};
 const Contents = (props) => {
-  const { videoUrls } = props;
+  const { videoUrls, category } = props;
   const contents = [];
+  console.log(category);
   for (let i = Object.keys(videoUrls).length - 1; i >= 0; i--) {
     const videoId = videoUrls[i].videoId;
-    // console.log(videoUrls);
-    // getQueryStringObject(videoUrls[i].url);
-    if (videoId) {
+    let isInCategory = handleCategory(videoUrls[i].categories, category);
+    if (videoId && isInCategory) {
       contents.push(
         <Content
           id={videoUrls[i]._id}

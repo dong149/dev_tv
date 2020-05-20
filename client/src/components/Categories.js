@@ -1,23 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/category.scss";
 
-const Categories = () => {
+const Categories = (props) => {
+  const { onClick, currentCategory } = props;
+
   return (
     <div className="categories">
-      <Category category="전체" />
-      <Category category="프론트엔드" />
-      <Category category="백엔드" />
-      <Category category="취업" />
-      <Category category="웹 개발" />
-      <Category category="앱 개발" />
-      <Category category="iOS" />
-      <Category category="안드로이드" />
+      <Category
+        category="전체"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="프론트엔드"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="백엔드"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="취업"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="웹 개발"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="앱 개발"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="iOS"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="안드로이드"
+        onClick={(text) => onClick(text)}
+        currentCategory={currentCategory}
+      />
     </div>
   );
 };
+
 const Category = (props) => {
   const [categoryClick, setCategoryClick] = useState(false);
-  const { category } = props;
+  const { category, onClick, currentCategory } = props;
+  useEffect(() => {
+    if (currentCategory !== category) {
+      setCategoryClick(false);
+    } else {
+      setCategoryClick(true);
+    }
+  }, [currentCategory]);
   return categoryClick ? (
     <div
       className="category-click"
@@ -32,6 +74,7 @@ const Category = (props) => {
       className="category"
       onClick={() => {
         setCategoryClick(!categoryClick);
+        onClick(category);
       }}
     >
       <span>{category}</span>

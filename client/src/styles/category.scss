@@ -6,7 +6,7 @@
   width: 350px;
   .category {
     display: inline-flex;
-    font-size: 0.8vw;
+    font-size: 15px;
     margin-right: 0.2vw;
     margin-bottom: 0.5vw;
     box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
@@ -16,6 +16,7 @@
 
     cursor: pointer;
     &:hover {
+      font-size: 15px;
       box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
         0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
       font-weight: normal;
@@ -23,7 +24,7 @@
   }
   .category-click {
     display: inline-flex;
-    font-size: 0.8vw;
+    font-size: 15px;
     margin-right: 0.2vw;
     margin-bottom: 0.5vw;
     box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
