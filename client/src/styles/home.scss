@@ -2,7 +2,7 @@
 @import "./mixin.scss";
 
 .logo-wrap {
-  width: 30%;
+  width: 375px;
   margin: 0 auto;
   margin-top: 1vh;
   cursor: pointer;
@@ -14,12 +14,12 @@
 .btn {
   margin: 0 auto;
   margin-bottom: 3vh;
-  width: 25%;
+  width: 375px;
   font-style: $spoqa-han-sans;
   .submit-btn {
     width: 50%;
     display: inline-block;
-    font-size: 1.2vw;
+    font-size: 18px;
     text-align: center;
     &:hover {
       font-weight: bold;
@@ -29,7 +29,7 @@
   .report-btn {
     width: 50%;
     display: inline-block;
-    font-size: 1.2vw;
+    font-size: 18px;
     text-align: center;
     &:hover {
       font-weight: bold;

@@ -39,7 +39,8 @@ const Modal = (props) => {
             url: url,
             videoId: videoId,
             title: title || res.items[0].snippet.title,
-            author: author || res.items[0].snippet.channelTitle,
+            channel: res.items[0].snippet.channelTitle,
+            author: author,
             categories: categories,
           });
           alert("성공적으로 등록되었습니다.");

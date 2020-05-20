@@ -35,6 +35,7 @@ const Contents = (props) => {
           id={videoUrls[i]._id}
           videoId={videoId}
           title={videoUrls[i].title}
+          channel={videoUrls[i].channel}
           author={videoUrls[i].author}
         />
       );
@@ -44,7 +45,7 @@ const Contents = (props) => {
 };
 
 const Content = (props) => {
-  const { id, videoId, title, author } = props;
+  const { id, videoId, title, channel, author } = props;
   const [isOpen, setIsOpen] = useState(false);
   const _onReady = (event) => {
     event.target.pauseVideo();
@@ -100,10 +101,10 @@ const Content = (props) => {
             <span>{title}</span>
           </div>
           <div className="post-subtitle-wrap">
-            <span>{author}</span>
+            <span>{channel}</span>
           </div>
           <div className="post-name-wrap">
-            <span>류동훈</span>
+            <span>{author}</span>
           </div>
         </div>
       </div>

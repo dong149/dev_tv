@@ -12,7 +12,7 @@
   margin: 0 auto;
   margin-top: 1vh;
   margin-bottom: 2.5vh;
-  width: 25%;
+  width: 375px;
   height: auto;
   vertical-align: middle;
   font-style: $spoqa-han-sans;
@@ -39,14 +39,14 @@
     .post-title-wrap {
       font-weight: bold;
       padding-bottom: 1vh;
-      font-size: 1.3vw;
-      max-width: 15vw;
+      font-size: 18px;
+      max-width: 220px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .post-subtitle-wrap {
-      font-size: 1vw;
+      font-size: 15px;
       color: grey;
       max-width: 15vw;
       white-space: nowrap;
@@ -54,7 +54,7 @@
       text-overflow: ellipsis;
     }
     .post-name-wrap {
-      font-size: 0.9vw;
+      font-size: 12px;
       font-weight: lighter;
       max-width: 15vw;
       white-space: nowrap;
