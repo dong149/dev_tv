@@ -26,6 +26,7 @@ const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
   const [category, setCategory] = useState("전체");
+  const [page, setPage] = useState(1);
   useEffect(() => {
     const getVideoUrls = async () => {
       try {
@@ -64,13 +65,34 @@ const App = () => {
           setCategory(text);
           console.log(text);
         }}
+        pageReset={() => {
+          setPage(1);
+        }}
         currentCategory={category}
       />
       {!isEmpty(videoUrls) && (
         <>
-          <Contents videoUrls={videoUrls} category={category} />
+          <Contents
+            videoUrls={videoUrls}
+            category={category}
+            page={page}
+            pageChange={(page) => setPage(page - 1)}
+          />
         </>
       )}
+      <div className="page-btn">
+        <div
+          className="page-btn-left-wrap"
+          onClick={() => {
+            if (page > 1) setPage(page - 1);
+          }}
+        >
+          <img className="page-btn-left" src="./left.png" alt="left" />
+        </div>
+        <div className="page-btn-right-wrap" onClick={() => setPage(page + 1)}>
+          <img className="page-btn-right" src="./right.png" alt="right" />
+        </div>
+      </div>
     </div>
   );
 };

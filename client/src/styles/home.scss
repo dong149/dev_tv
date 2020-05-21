@@ -37,3 +37,28 @@
     }
   }
 }
+.page-btn {
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 375px;
+
+  .page-btn-left-wrap {
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
+    .page-btn-left {
+      width: 30%;
+    }
+  }
+  .page-btn-right-wrap {
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
+    .page-btn-right {
+      width: 30%;
+    }
+  }
+}
