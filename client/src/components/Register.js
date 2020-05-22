@@ -40,7 +40,7 @@ const Modal = (props) => {
             videoId: videoId,
             title: title || res.items[0].snippet.title,
             channel: res.items[0].snippet.channelTitle,
-            author: author,
+            author: author || "익명",
             categories: categories,
           });
           alert("성공적으로 등록되었습니다.");
