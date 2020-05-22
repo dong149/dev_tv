@@ -7,9 +7,9 @@ module.exports = (app) => {
     return res.status(200).send(comments);
   });
   // 해당 영상의 댓글을 가져옵니다.
-  app.get(`/api/comment/video_id/:video_id`, async (req, res) => {
+  app.get(`/api/comment/content_id/:content_id`, async (req, res) => {
     let comments = await Comment.find({
-      video_id: req.paramse.video_id,
+      content_id: req.params.content_id,
     });
     return res.status(200).send(comments);
   });
@@ -19,7 +19,7 @@ module.exports = (app) => {
     return res.status(201).send({ error: false, comments });
   });
   app.delete(`/api/comment/:comment_id`, async (req, res) => {
-    await Comment.remove({ _id: req.params.url_id }, (err) => {
+    await Comment.remove({ _id: req.params.comment_id }, (err) => {
       if (err) return res.status(500).json({ error: "databse failure" });
       res.status(204).end();
     });

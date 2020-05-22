@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 
 // models
 require("./models/Url");
-
+require("./models/Comment");
 // create express
 const app = express();
 
@@ -70,6 +70,7 @@ app.use(bodyParser.json());
 
 //IMPORT ROUTES
 const urlRoutes = require("./routes/urlRoutes")(app);
+const commentRoutes = require("./routes/commentRoutes")(app);
 
 app.use(express.static("client/build"));
 
