@@ -9,6 +9,7 @@
     "server": "nodemon index.js",
     "start": "node index.js",
     "client": "cd client && npm start",
+    "clinetbuild": "cd client && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
