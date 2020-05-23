@@ -26,13 +26,13 @@ dotenv.config();
 if (process.env.NODE_ENV === "production") {
   app.use(
     cors({
-      origin: "https://",
+      origin: "http://ec2-18-220-116-22.us-east-2.compute.amazonaws.com",
     })
   );
 } else {
   app.use(
     cors({
-      origin: "https://localhost:3000",
+      origin: "http://localhost:3000",
     })
   );
 }

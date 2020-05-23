@@ -1,13 +1,23 @@
 import axios from "axios";
 
+let BASE_URL;
+if (process.env.NODE_ENV === "production") {
+  BASE_URL = "http://ec2-18-220-116-22.us-east-2.compute.amazonaws.com";
+} else {
+  BASE_URL = "http://localhost:3000";
+}
+const baseAPI = axios.create({
+  baseURL: BASE_URL,
+});
+
 const urlService = {
   getUrl: async () => {
-    let res = await axios.get(`/api/url`);
+    let res = await baseAPI.get(`/api/url`);
     return res.data || [];
   },
   postUrl: async (object) => {
     console.log(object);
-    await axios
+    await baseAPI
       .post(`/api/url`, object)
       .then((res) => {
         console.log("post");
@@ -19,7 +29,7 @@ const urlService = {
   },
   deleteUrl: async (id) => {
     console.log(id);
-    const res = await axios.delete(`/api/url/${id}`, { params: { _id: id } });
+    const res = await baseAPI.delete(`/api/url/${id}`, { params: { _id: id } });
     if (res.statusText === "No Content") {
       return true;
     } else {
