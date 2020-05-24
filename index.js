@@ -26,7 +26,7 @@ dotenv.config();
 if (process.env.NODE_ENV === "production") {
   app.use(
     cors({
-      origin: "http://ec2-18-220-116-22.us-east-2.compute.amazonaws.com",
+      origin: "https://donghoon.tk/",
     })
   );
 } else {
