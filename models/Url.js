@@ -8,6 +8,8 @@ const urlSchema = new Schema({
   channel: String,
   author: String,
   categories: Array,
+  password: String,
+  date: String,
 });
 
 mongoose.model("urls", urlSchema);

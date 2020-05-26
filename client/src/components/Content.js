@@ -6,6 +6,7 @@ import commentService from "../services/commentService.js";
 import urlParse from "url-parse";
 import axios from "axios";
 import CommentForm from "./Comment";
+import { handleDate } from "../functions";
 require("dotenv").config();
 const opts = {
   // height: "390",
@@ -15,6 +16,7 @@ const opts = {
     autoplay: 1,
   },
 };
+
 const isEmpty = function (value) {
   if (
     value == "" ||
@@ -81,6 +83,8 @@ const Contents = (props) => {
             title={videoUrls[i].title}
             channel={videoUrls[i].channel}
             author={videoUrls[i].author}
+            password={videoUrls[i].password}
+            date={videoUrls[i].date}
           />
         );
       }
@@ -95,11 +99,12 @@ const Contents = (props) => {
 };
 
 const Content = (props) => {
-  const { id, videoId, title, channel, author } = props;
+  const { id, videoId, title, channel, author, password, date } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [commentCnt, setCommentCnt] = useState(0);
   const [comments, setComments] = useState([]);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
+  const [isCommentUpdate, setIsCommentUpdate] = useState(false);
   const _onReady = (event) => {
     event.target.pauseVideo();
   };
@@ -110,38 +115,47 @@ const Content = (props) => {
       try {
         const temp = await commentService.getComment(id);
         setComments(temp);
+        setIsCommentUpdate(false);
         if (!isEmpty(comments)) {
-          console.log(comments);
+          // console.log(comments);
         }
       } catch (err) {
         console.log(err);
       }
     };
+
     getComments();
-  }, []);
+  }, [isCommentUpdate]);
   let cnt = 0;
   if (!isEmpty(comments)) {
     for (let i = Object.keys(comments).length - 1; i >= 0; i--) {
-      console.log("dkdkdk");
       if (comments[i].content_id === id) {
         cnt++;
       }
     }
+    // setCommentCnt(cnt);
   }
   // 삭제 기능입니다.
   const onDelete = async (id) => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
-      await urlService.deleteUrl(id).then((res) => {
-        if (res) {
-          alert("성공적으로 삭제되었습니다.");
-          window.location.reload();
-        } else {
-          alert("삭제 중에 오류가 발생하였습니다.");
-          window.location.reload();
-        }
-      });
+      let inputPassword = window.prompt("암호를 입력하세요", "");
+      if (inputPassword === password || isEmpty(password)) {
+        await urlService.deleteUrl(id).then((res) => {
+          if (res) {
+            alert("성공적으로 삭제되었습니다.");
+            window.location.reload();
+          } else {
+            alert("삭제 중에 오류가 발생하였습니다.");
+            window.location.reload();
+          }
+        });
+      } else {
+        alert("암호가 틀렸습니다.");
+        window.location.reload();
+      }
     }
   };
+  const dateInfo = handleDate(date);
   return (
     <>
       <div
@@ -167,6 +181,9 @@ const Content = (props) => {
             <div className="post-name-wrap">
               <span>{author}</span>
             </div>
+            <div className="post-name-wrap">
+              <span> | {dateInfo}</span>
+            </div>
             <div
               className="post-comment-wrap"
               onClick={() => setIsCommentOpen(!isCommentOpen)}
@@ -176,7 +193,13 @@ const Content = (props) => {
           </div>
         </div>
       </div>
-      {isCommentOpen && <CommentForm content_id={id} comments={comments} />}
+      {isCommentOpen && (
+        <CommentForm
+          content_id={id}
+          comments={comments}
+          commentUpdate={() => setIsCommentUpdate(true)}
+        />
+      )}
       {isOpen && videoId && !isCommentOpen && (
         <>
           <div className="content">

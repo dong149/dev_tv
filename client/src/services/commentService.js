@@ -19,7 +19,7 @@ const commentService = {
     let res = await baseAPI.get(`api/comment/`, {
       params: { content_id: content_id },
     });
-    console.log(res.data);
+    // console.log(res.data);
     return res.data || [];
   },
   postComment: async (object) => {
