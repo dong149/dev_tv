@@ -100,6 +100,7 @@ const Contents = (props) => {
 
 const Content = (props) => {
   const { id, videoId, title, channel, author, password, date } = props;
+  const [postLoaded, setPostLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [commentCnt, setCommentCnt] = useState(0);
   const [comments, setComments] = useState([]);
@@ -159,13 +160,14 @@ const Content = (props) => {
   return (
     <>
       <div
-        className="post"
         onClick={() => {
           setIsOpen(!isOpen);
           if (isCommentOpen) {
             setIsCommentOpen(!isCommentOpen);
           }
         }}
+        className={`post post-${postLoaded ? "visible" : "hidden"}`}
+        onLoad={() => setPostLoaded(true)}
       >
         <div className="thumbnail-wrap">
           <img className="thumbnail" src={thumbnailSrc} alt="thumbnail" />

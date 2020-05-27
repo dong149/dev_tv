@@ -6,8 +6,18 @@
   margin: 0 auto;
   margin-top: 1vh;
   cursor: pointer;
-  .logo {
+
+  .smooth-image {
+    transition: opacity 3s;
+  }
+  .image-visible {
     width: 100%;
+    opacity: 1;
+  }
+  .image-hidden {
+    height: 233.484px;
+    width: 100%;
+    opacity: 0;
   }
 }
 

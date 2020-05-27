@@ -23,9 +23,11 @@ const isEmpty = function (value) {
 };
 
 const App = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
   const [category, setCategory] = useState("전체");
+
   const [page, setPage] = useState(1);
   useEffect(() => {
     const getVideoUrls = async () => {
@@ -42,7 +44,12 @@ const App = () => {
   return (
     <div>
       <div className="logo-wrap">
-        <img className="logo" src="./devtv.jpg" alt="logo" />
+        <img
+          src="./devtv.jpg"
+          alt="logo"
+          className={`smooth-image image-${imageLoaded ? "visible" : "hidden"}`}
+          onLoad={() => setImageLoaded(true)}
+        />
       </div>
       {isOpenModal && (
         <>
