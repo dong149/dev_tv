@@ -25,8 +25,17 @@
   .modal-img-wrap {
     margin: 0 auto;
     width: 80%;
-    .modal-img {
+    .smooth-image {
+      transition: opacity 1s;
+    }
+    .image-visible {
       width: 100%;
+      opacity: 1;
+    }
+    .image-hidden {
+      height: 148.281px;
+      // width: 100%;
+      opacity: 0;
     }
   }
   .modal-input-wrap {

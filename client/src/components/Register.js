@@ -11,6 +11,7 @@ require("dotenv").config();
 
 const Modal = (props) => {
   const { close } = props;
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -103,7 +104,22 @@ const Modal = (props) => {
 
       <div className="modal">
         <div className="modal-img-wrap">
-          <img className="modal-img" src="./register.jpg" alt="modal-img" />
+          <img
+            src="./register.jpg"
+            alt="modal-img"
+            className={`smooth-image image-${
+              imageLoaded ? "visible" : "hidden"
+            }`}
+            onLoad={() => setImageLoaded(true)}
+          />
+          {/* {
+            !imageLoaded && (
+              <div>
+
+              </div>
+            )
+
+          } */}
         </div>
 
         <div className="modal-input-wrap">

@@ -26,7 +26,7 @@ dotenv.config();
 if (process.env.NODE_ENV === "production") {
   app.use(
     cors({
-      origin: "https://donghoon.tk/",
+      origin: "https://donghoon.tk",
     })
   );
 } else {
