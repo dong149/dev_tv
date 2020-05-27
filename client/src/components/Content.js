@@ -60,7 +60,7 @@ const Contents = (props) => {
   const { videoUrls, category, page, pageChange } = props;
   const contents = [];
   console.log(category);
-  let pageComponentLimit = 10;
+  let pageComponentLimit = 7;
   let pageComponent = 0;
   // 해당 페이지에 몇 개의 컨텐츠가 들어갔는지 확인합니다.
   let thisPageComponent = 0;
