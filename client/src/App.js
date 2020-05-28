@@ -27,7 +27,6 @@ const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
   const [category, setCategory] = useState("전체");
-
   const [page, setPage] = useState(1);
   useEffect(() => {
     const getVideoUrls = async () => {

@@ -66,6 +66,7 @@ const CommentForm = (props) => {
       });
       commentUpdate();
       setComment("");
+      setAuthor("");
       alert("성공적으로 등록되었습니다.");
     } catch (err) {
       console.log(err);
@@ -85,9 +86,10 @@ const CommentForm = (props) => {
             className="comment-input"
             // type="textarea"
             rows="3"
+            maxLength="100"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder="댓글을 입력해주세요."
+            placeholder="댓글을 입력해주세요. (최대 100자 입력)"
             onKeyPress={onKeyPress}
           />
         </div>
@@ -96,6 +98,7 @@ const CommentForm = (props) => {
             className="comment-author-input"
             type="text"
             value={author}
+            maxLength="10"
             onChange={(e) => setAuthor(e.target.value)}
             placeholder="작성자를 입력해주세요."
             onKeyPress={onKeyPress}

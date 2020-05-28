@@ -157,6 +157,7 @@ const Modal = (props) => {
             className="modal-input"
             type="text"
             value={videoUrl}
+            maxLength="50"
             onChange={(e) => setVideoUrl(e.target.value)}
             placeholder="http://"
             onKeyPress={onKeyPress}
@@ -166,6 +167,7 @@ const Modal = (props) => {
             className="modal-input"
             type="text"
             value={title}
+            maxLength="20"
             onChange={(e) => setTitle(e.target.value)}
             placeholder="입력하지 않으면 자동으로 입력됩니다."
             onKeyPress={onKeyPress}
@@ -175,6 +177,7 @@ const Modal = (props) => {
             className="modal-input"
             type="text"
             value={author}
+            maxLength="10"
             onChange={(e) => setAuthor(e.target.value)}
             placeholder="작성하지 않을 시, 익명으로 처리됩니다."
             onKeyPress={onKeyPress}
@@ -183,6 +186,7 @@ const Modal = (props) => {
           <input
             className="modal-input"
             type="password"
+            maxLength="10"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="필수 항목입니다."
