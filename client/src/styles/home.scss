@@ -52,6 +52,7 @@
   margin-top: 60px;
   margin-bottom: 60px;
   width: 375px;
+  transition: opacity 1s;
 
   .page-btn-left-wrap {
     display: inline-block;
@@ -70,5 +71,13 @@
     .page-btn-right {
       width: 30%;
     }
+  }
+}
+.btn {
+  &-visible {
+    opacity: 1;
+  }
+  &-hidden {
+    opacity: 0;
   }
 }

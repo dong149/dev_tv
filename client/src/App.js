@@ -24,6 +24,7 @@ const isEmpty = function (value) {
 
 const App = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [btnLoaded, setBtnLoaded] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
   const [category, setCategory] = useState("전체");
@@ -86,12 +87,16 @@ const App = () => {
           />
         </>
       )}
-      <div className="page-btn">
+      <div
+        className={`page-btn btn-${btnLoaded ? "visible" : "hidden"}`}
+        onLoad={() => setBtnLoaded(true)}
+      >
         <div
           className="page-btn-left-wrap"
           onClick={() => {
             if (page > 1) setPage(page - 1);
           }}
+          onLoad={() => setBtnLoaded(true)}
         >
           <img className="page-btn-left" src="./left.png" alt="left" />
         </div>
