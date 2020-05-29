@@ -104,6 +104,19 @@ const App = () => {
           <img className="page-btn-right" src="./right.png" alt="right" />
         </div>
       </div>
+
+      <footer className="footer">
+        <p>
+          왼손잡이들 |&nbsp;
+          <a className="footer-info" href="./devtv.club.html">
+            개인정보처리방침
+          </a>
+          &nbsp;|&nbsp;
+          <a className="footer-info" href="mailto:donghoon149@gmail.com">
+            메일 보내기
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };

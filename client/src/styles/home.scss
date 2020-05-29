@@ -81,3 +81,19 @@
     opacity: 0;
   }
 }
+
+.footer {
+  width: 375px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: $spoqa-han-sans;
+  border-top: 1px solid #e9ecef;
+  .footer-info {
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

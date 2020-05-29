@@ -31,14 +31,6 @@ const Categories = (props) => {
         currentCategory={currentCategory}
       />
       <Category
-        category="취업"
-        onClick={(text) => {
-          onClick(text);
-          pageReset();
-        }}
-        currentCategory={currentCategory}
-      />
-      <Category
         category="웹 개발"
         onClick={(text) => {
           onClick(text);
@@ -64,6 +56,46 @@ const Categories = (props) => {
       />
       <Category
         category="안드로이드"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="취업"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="대기업"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="스타트업"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="LOL"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="기타"
         onClick={(text) => {
           onClick(text);
           pageReset();

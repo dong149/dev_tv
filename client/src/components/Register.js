@@ -133,10 +133,6 @@ const Modal = (props) => {
             onClick={(text, isClicked) => handleCategory(text, isClicked)}
           />
           <Category
-            category={"취업"}
-            onClick={(text, isClicked) => handleCategory(text, isClicked)}
-          />
-          <Category
             category={"웹 개발"}
             onClick={(text, isClicked) => handleCategory(text, isClicked)}
           />
@@ -150,6 +146,26 @@ const Modal = (props) => {
           />
           <Category
             category={"안드로이드"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"취업"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"대기업"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"스타트업"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"LOL"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"기타"}
             onClick={(text, isClicked) => handleCategory(text, isClicked)}
           />
           <p className="modal-input-label">링크(주소)</p>
