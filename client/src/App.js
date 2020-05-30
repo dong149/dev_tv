@@ -41,6 +41,13 @@ const App = () => {
     };
     getVideoUrls();
   }, []);
+  // const test = async () => {
+  //   await urlService.getIpAddress().then((res) => {
+  //     console.log("personInfo", res);
+  //   });
+  // };
+  // test();
+
   return (
     <div>
       <div className="logo-wrap">
@@ -107,11 +114,11 @@ const App = () => {
 
       <footer className="footer">
         <p>
-          왼손잡이들 |&nbsp;
+          왼손잡이들&nbsp;&nbsp;|&nbsp;&nbsp;
           <a className="footer-info" href="./devtv.club.html">
             개인정보처리방침
           </a>
-          &nbsp;|&nbsp;
+          &nbsp;&nbsp;|&nbsp;&nbsp;
           <a className="footer-info" href="mailto:donghoon149@gmail.com">
             메일 보내기
           </a>

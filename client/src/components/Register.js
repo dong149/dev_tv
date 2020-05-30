@@ -81,6 +81,8 @@ const Modal = (props) => {
             categories: categories,
             password: password,
             date: date,
+            good: 0,
+            bad: 0,
           });
           alert("성공적으로 등록되었습니다.");
           window.location.reload();

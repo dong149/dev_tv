@@ -85,6 +85,8 @@ const Contents = (props) => {
             author={videoUrls[i].author}
             password={videoUrls[i].password}
             date={videoUrls[i].date}
+            good={videoUrls[i].good}
+            bad={videoUrls[i].bad}
           />
         );
       }
@@ -99,13 +101,28 @@ const Contents = (props) => {
 };
 
 const Content = (props) => {
-  const { id, videoId, title, channel, author, password, date } = props;
+  const {
+    id,
+    videoId,
+    title,
+    channel,
+    author,
+    password,
+    date,
+    good,
+    bad,
+  } = props;
   const [postLoaded, setPostLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [commentCnt, setCommentCnt] = useState(0);
   const [comments, setComments] = useState([]);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [isCommentUpdate, setIsCommentUpdate] = useState(false);
+  const [isGoodUpdate, setIsGoodUpdate] = useState(false);
+  const [isBadUpdate, setIsBadUpdate] = useState(false);
+  const [goodCnt, setGoodCnt] = useState(good);
+  const [badCnt, setBadCnt] = useState(bad);
+  const [clientHistory, setClientHistory] = useState();
   const _onReady = (event) => {
     event.target.pauseVideo();
   };
@@ -127,6 +144,41 @@ const Content = (props) => {
 
     getComments();
   }, [isCommentUpdate]);
+
+  useEffect(() => {
+    console.log("touch");
+    const changeGoodBad = async () => {
+      try {
+        if (isGoodUpdate) {
+          await urlService.updateGood(id, good);
+          setGoodCnt(goodCnt + 1);
+        }
+        if (isBadUpdate) {
+          await urlService.updateBad(id, bad);
+          setBadCnt(badCnt + 1);
+        }
+        setIsGoodUpdate(false);
+        setIsBadUpdate(false);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    changeGoodBad();
+  }, [isGoodUpdate, isBadUpdate]);
+
+  let history;
+  useEffect(() => {
+    // localStorage 에 고객 정보를 담아 사용합니다.
+    let jsonTemp = JSON.parse(localStorage.getItem("clientInfo"));
+    if (jsonTemp) {
+      history = jsonTemp;
+    } else {
+      history = { goodBad: [] };
+    }
+    console.log(history);
+    setClientHistory(history);
+  }, [isGoodUpdate, isBadUpdate]);
+
   let cnt = 0;
   if (!isEmpty(comments)) {
     for (let i = Object.keys(comments).length - 1; i >= 0; i--) {
@@ -157,6 +209,7 @@ const Content = (props) => {
     }
   };
   const dateInfo = handleDate(date);
+
   return (
     <>
       <div
@@ -186,11 +239,71 @@ const Content = (props) => {
             <div className="post-name-wrap">
               <span> | {dateInfo}</span>
             </div>
+          </div>
+          <div className="post-btn-wrap">
             <div
               className="post-comment-wrap"
               onClick={() => setIsCommentOpen(!isCommentOpen)}
             >
               <span>댓글 {cnt}개</span>
+            </div>
+            <div
+              className="post-good-wrap"
+              onClick={(e) => {
+                console.log(clientHistory);
+                if (!isEmpty(clientHistory.goodBad)) {
+                  let temp = clientHistory.goodBad;
+                  for (let i = 0; i < temp.length; i++) {
+                    if (temp[i].content_id === id) {
+                      alert("이미 누르셨습니다.");
+                      return;
+                    }
+                  }
+                }
+                setIsGoodUpdate(true);
+                let history = clientHistory;
+                history.goodBad.push({
+                  content_id: id,
+                  choice: "good",
+                });
+                history.goodBad = Array.from(new Set(history.goodBad));
+                localStorage.setItem("clientInfo", JSON.stringify(history));
+                setClientHistory(history);
+                e.stopPropagation();
+              }}
+            >
+              <span className="post-good">좋아요 </span>
+              <span className="post-good-cnt">{goodCnt}</span>
+              <span>개</span>
+            </div>
+            <div
+              className="post-bad-wrap"
+              onClick={(e) => {
+                console.log(clientHistory);
+                if (!isEmpty(clientHistory.goodBad)) {
+                  let temp = clientHistory.goodBad;
+                  for (let i = 0; i < temp.length; i++) {
+                    if (temp[i].content_id === id) {
+                      alert("이미 누르셨습니다.");
+                      return;
+                    }
+                  }
+                }
+                setIsBadUpdate(true);
+                let history = clientHistory;
+                history.goodBad.push({
+                  content_id: id,
+                  choice: "bad",
+                });
+                history.goodBad = Array.from(new Set(history.goodBad));
+                localStorage.setItem("clientInfo", JSON.stringify(history));
+                setClientHistory(history);
+                e.stopPropagation();
+              }}
+            >
+              <span className="post-bad">싫어요 </span>
+              <span className="post-bad-cnt">{badCnt}</span>
+              <span>개</span>
             </div>
           </div>
         </div>

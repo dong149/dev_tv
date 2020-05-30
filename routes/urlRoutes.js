@@ -23,4 +23,10 @@ module.exports = (app) => {
       res.status(204).end();
     });
   });
+  app.put(`/api/url/:url_id`, async (req, res) => {
+    await Url.update({ _id: req.params.url_id }, { $set: req.body }, (err) => {
+      if (err) return res.status(500).json({ error: "databse failure" });
+      res.status(204).end();
+    });
+  });
 };

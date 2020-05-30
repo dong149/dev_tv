@@ -36,12 +36,36 @@ const urlService = {
       return false;
     }
   },
+  updateGood: async (id, good) => {
+    await baseAPI
+      .put(`/api/url/${id}`, { good: good + 1 })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  updateBad: async (id, bad) => {
+    await baseAPI
+      .put(`/api/url/${id}`, { bad: bad + 1 })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
   getVideoInfo: async (videoId, api_key) => {
     let res = await axios.get(
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${api_key}`
     );
     return res.data || [];
   },
+  // getIpAddress: async () => {
+  //   let res = await axios.get(`https://www.cloudflare.com/cdn-cgi/trace`);
+  //   return res.request.response || [];
+  // },
 };
 
 export default urlService;

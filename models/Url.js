@@ -10,6 +10,8 @@ const urlSchema = new Schema({
   categories: Array,
   password: String,
   date: String,
+  good: Number,
+  bad: Number,
 });
 
 mongoose.model("urls", urlSchema);

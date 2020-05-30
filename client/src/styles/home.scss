@@ -89,9 +89,11 @@
   margin-top: 100px;
   font-family: $spoqa-han-sans;
   border-top: 1px solid #e9ecef;
+
   .footer-info {
     text-decoration: none;
     cursor: pointer;
+    color: grey;
     &:hover {
       font-weight: bold;
     }
