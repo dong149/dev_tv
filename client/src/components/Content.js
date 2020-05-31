@@ -256,6 +256,7 @@ const Content = (props) => {
                   for (let i = 0; i < temp.length; i++) {
                     if (temp[i].content_id === id) {
                       alert("이미 누르셨습니다.");
+                      e.stopPropagation();
                       return;
                     }
                   }
@@ -285,6 +286,7 @@ const Content = (props) => {
                   for (let i = 0; i < temp.length; i++) {
                     if (temp[i].content_id === id) {
                       alert("이미 누르셨습니다.");
+                      e.stopPropagation();
                       return;
                     }
                   }

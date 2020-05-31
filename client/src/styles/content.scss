@@ -1,6 +1,9 @@
 @import "./font.scss";
 @import "./mixin.scss";
-
+div {
+  margin: 0 0;
+  padding: 0 0;
+}
 .content {
   margin: 0 auto;
   text-align: center;
@@ -81,16 +84,19 @@
   .thumbnail-wrap {
     display: table-cell;
     vertical-align: middle;
+
     width: 128px;
     .thumbnail {
       // padding-top: 4px;
+      display: block;
       width: 100%;
     }
   }
   .post-content {
     display: table-cell;
     vertical-align: middle;
-    padding-left: 2%;
+    padding-left: 5px;
+
     .post-title-wrap {
       font-weight: bold;
       padding-bottom: 1px;
@@ -102,10 +108,10 @@
     }
     .post-subtitle-wrap {
       font-size: 13px;
-      line-height: 13px;
+      line-height: 18px;
       padding-top: 2px;
       color: grey;
-      max-width: 15vw;
+      max-width: 230px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -115,49 +121,50 @@
         display: inline;
         font-size: 12px;
         font-weight: lighter;
-        max-width: 15vw;
+        max-width: 230px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
     }
     .post-btn-wrap {
-      padding-top: 2px;
-      margin-bottom: 5px;
+      // padding-top: 2px;
+      // margin-bottom: 1px;
       .post-comment-wrap {
         display: inline;
         margin-right: 6px;
-        font-size: 10px;
+        font-size: 11px;
         border-radius: 4px;
-        box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.06),
-          0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+        // box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.06),
+        //   0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
         font-weight: lighter;
-        padding: 4px 4px;
+        padding: 4px 0px 0px;
         &:hover {
-          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
-            0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
+          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+            0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
           font-weight: normal;
         }
       }
       .post-good-wrap {
         display: inline;
         margin-right: 6px;
-        font-size: 10px;
-        background-color: #327ab7;
+        font-size: 11px;
+        // background-color: #4056a1;
         border-radius: 4px;
-        color: white;
+        color: #4056a1;
+        // color: white;
         font-weight: normal;
-        box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.06),
-          0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+        // box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.06),
+        //   0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
 
         padding: 4px 4px;
         &:hover {
-          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
-            0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
+          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+            0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
           font-weight: bold;
         }
         .post-good {
-          color: white;
+          color: #4056a1;
         }
         .post-good-cnt {
           font-weight: normal;
@@ -166,22 +173,24 @@
       .post-bad-wrap {
         display: inline;
         margin-right: 6px;
-        font-size: 10px;
-        background-color: #d9534f;
+        font-size: 11px;
+        // background-color: #f13c20;
+        color: #f13c20;
         border-radius: 4px;
-        color: white;
+        // color: white;
         font-weight: normal;
-        box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.06),
-          0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+        // box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.06),
+        //   0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
         // font-weight: lighter;
         padding: 4px 4px;
         &:hover {
-          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
-            0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
+          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+            0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
           font-weight: bold;
         }
         .post-bad {
-          color: white;
+          color: #f13c20;
+          // color: white;
         }
         .post-bad-cnt {
           font-weight: normal;

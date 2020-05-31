@@ -19,8 +19,8 @@
   text-align: center;
   transform: translate(-50%, -50%);
   background-color: white;
-  box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.05),
-    0 4px 24px 0 rgba(0, 0, 33, 0.05), 0 0 1px 0 rgba(0, 0, 33, 0.09);
+  box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.3),
+    0 4px 24px 0 rgba(0, 0, 33, 0.3), 0 0 1px 0 rgba(0, 0, 33, 0.39);
 
   .modal-img-wrap {
     margin: 0 auto;
@@ -39,17 +39,17 @@
   }
   .modal-input-wrap {
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
     text-align: left;
 
     .modal-input-label {
-      font-size: 1vw;
-      margin-top: 1vw;
+      font-size: 12px;
+      margin-top: 14px;
       margin-bottom: 0.5vw;
     }
     .modal-category {
       display: inline-flex;
-      font-size: 0.8vw;
+      font-size: 11px;
       margin-right: 0.2vw;
       margin-bottom: 0.5vw;
       box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
@@ -66,11 +66,11 @@
     }
     .modal-category-click {
       display: inline-flex;
-      font-size: 0.8vw;
+      font-size: 11px;
       margin-right: 0.2vw;
       margin-bottom: 0.5vw;
-      box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.1),
-        0 4px 24px 0 rgba(0, 0, 33, 0.15), 0 0 1px 0 rgba(0, 0, 33, 0.13);
+      box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.08),
+        0 4px 24px 0 rgba(0, 0, 33, 0.06), 0 0 1px 0 rgba(0, 0, 33, 0.09);
       font-weight: normal;
       padding: 4px 4px;
 
@@ -79,7 +79,7 @@
     .modal-input {
       padding: 4px 4px;
       width: 100%;
-      font-size: 0.8vw;
+      font-size: 11px;
     }
   }
   .modal-title {
@@ -87,9 +87,9 @@
   .modal-content {
   }
   .modal-register-btn-wrap {
-    padding-top: 2vw;
+    padding-top: 25px;
     padding-bottom: 2vw;
-    font-size: 1vw;
+    font-size: 14px;
     cursor: pointer;
     &:hover {
       font-weight: bold;

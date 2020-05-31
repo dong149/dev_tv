@@ -33,6 +33,7 @@
     text-align: center;
     &:hover {
       font-weight: bold;
+      color: #4056a1;
       cursor: pointer;
     }
   }
@@ -43,6 +44,7 @@
     text-align: center;
     &:hover {
       font-weight: bold;
+      color: #f13c20;
       cursor: pointer;
     }
   }
@@ -83,18 +85,20 @@
 }
 
 .footer {
-  width: 375px;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
   margin-top: 100px;
+  margin-bottom: 40px;
   font-family: $spoqa-han-sans;
   border-top: 1px solid #e9ecef;
-
+  font-size: 14px;
   .footer-info {
     text-decoration: none;
     cursor: pointer;
     color: grey;
     &:hover {
+      color: #4056a1;
       font-weight: bold;
     }
   }
