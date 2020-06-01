@@ -230,17 +230,13 @@ const Modal = (props) => {
 
 const getQueryStringObject = (url) => {
   let res = new urlParse(url);
-  console.log(res);
   if (res.query) {
     let temp = res.query.split("=");
-    console.log(temp);
     temp = temp[1].split("&");
-    console.log(temp);
     return temp[0];
   }
   if (res.pathname) {
     let temp = res.pathname.split("/");
-    console.log(temp);
     return temp[1];
   }
   return "";
