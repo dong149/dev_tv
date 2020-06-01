@@ -46,7 +46,7 @@ const handleDate = (date) => {
 };
 
 const CommentForm = (props) => {
-  const { content_id, comments, commentUpdate } = props;
+  const { content_id, comments } = props;
   // const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
   const [author, setAuthor] = useState("");
@@ -64,7 +64,7 @@ const CommentForm = (props) => {
         content_id: content_id,
         author: author || "익명",
       });
-      commentUpdate();
+      props.commentUpdate();
       setComment("");
       setAuthor("");
       alert("성공적으로 등록되었습니다.");
@@ -127,6 +127,7 @@ const Comments = (props) => {
     if (comments[i].content_id === content_id) {
       viewComments.push(
         <Comment
+          key={i}
           comment={comments[i].comment}
           author={comments[i].author}
           date={comments[i].date}

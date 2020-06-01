@@ -140,8 +140,9 @@ div {
         font-weight: lighter;
         padding: 4px 0px 0px;
         &:hover {
-          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
-            0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
+          // box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+          //   0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
+          text-shadow: 2px 2px 2px rgba(0, 0, 33, 0.02);
           font-weight: normal;
         }
       }
@@ -159,8 +160,9 @@ div {
 
         padding: 4px 4px;
         &:hover {
-          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
-            0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
+          // box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+          //   0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
+          text-shadow: 2px 2px 2px rgba(0, 0, 33, 0.02);
           font-weight: bold;
         }
         .post-good {
@@ -184,8 +186,9 @@ div {
         // font-weight: lighter;
         padding: 4px 4px;
         &:hover {
-          box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
-            0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
+          // box-shadow: 0 30px 60px 12px rgba(0, 0, 33, 0.02),
+          //   0 4px 24px 0 rgba(0, 0, 33, 0.08), 0 0 1px 0 rgba(0, 0, 33, 0.06);
+          text-shadow: 2px 2px 2px rgba(0, 0, 33, 0.02);
           font-weight: bold;
         }
         .post-bad {

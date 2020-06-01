@@ -78,6 +78,7 @@ const Contents = (props) => {
         thisPageComponent++;
         contents.push(
           <Content
+            key={videoUrls[i]._id}
             id={videoUrls[i]._id}
             videoId={videoId}
             title={videoUrls[i].title}
@@ -344,7 +345,11 @@ const Content = (props) => {
               </div>
             </div>
           </div>
-          <CommentForm content_id={id} comments={comments} />
+          <CommentForm
+            content_id={id}
+            comments={comments}
+            commentUpdate={() => setIsCommentUpdate(true)}
+          />
         </>
       )}
     </>
