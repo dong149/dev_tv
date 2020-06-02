@@ -72,7 +72,7 @@ const Modal = (props) => {
             return;
           }
           const date = format(new Date(), "yyyyMMddHHmmss");
-          urlService.postUrl({
+          await urlService.postUrl({
             url: url,
             videoId: videoId,
             title: title || res.items[0].snippet.title,
@@ -85,7 +85,7 @@ const Modal = (props) => {
             bad: 0,
           });
           alert("성공적으로 등록되었습니다.");
-          // window.location.reload();
+          window.location.reload();
         });
       }
     } catch (err) {
