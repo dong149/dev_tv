@@ -66,7 +66,7 @@ const Modal = (props) => {
         return;
       }
       if (videoId) {
-        await urlService.getVideoInfo(videoId, api_key).then((res) => {
+        await urlService.getVideoInfo(videoId, api_key).then(async (res) => {
           if (isEmpty(res)) {
             setError("※유효하지 않은 영상입니다.");
             return;
