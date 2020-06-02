@@ -66,26 +66,29 @@ const Modal = (props) => {
         return;
       }
       if (videoId) {
-        await urlService.getVideoInfo(videoId, api_key).then(async (res) => {
+        await urlService.getVideoInfo(videoId, api_key).then((res) => {
           if (isEmpty(res)) {
             setError("※유효하지 않은 영상입니다.");
             return;
           }
           const date = format(new Date(), "yyyyMMddHHmmss");
-          await urlService.postUrl({
-            url: url,
-            videoId: videoId,
-            title: title || res.items[0].snippet.title,
-            channel: res.items[0].snippet.channelTitle,
-            author: author || "익명",
-            categories: categories,
-            password: password,
-            date: date,
-            good: 0,
-            bad: 0,
-          });
-          alert("성공적으로 등록되었습니다.");
-          window.location.reload();
+          urlService
+            .postUrl({
+              url: url,
+              videoId: videoId,
+              title: title || res.items[0].snippet.title,
+              channel: res.items[0].snippet.channelTitle,
+              author: author || "익명",
+              categories: categories,
+              password: password,
+              date: date,
+              good: 0,
+              bad: 0,
+            })
+            .then((res) => {
+              alert("성공적으로 등록되었습니다.");
+              window.location.reload();
+            });
         });
       }
     } catch (err) {

@@ -22,9 +22,11 @@ const urlService = {
       .then((res) => {
         console.log("post");
         console.log(res.data);
+        return 1;
       })
       .catch((error) => {
         console.log(error);
+        return 0;
       });
   },
   deleteUrl: async (id) => {
