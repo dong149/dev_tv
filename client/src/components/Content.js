@@ -57,46 +57,76 @@ const handlePage = (page, pageComponentLimit, index) => {
 
 // 한 페이지에 보여질 컨텐츠를 담은 컴포넌트.
 const Contents = (props) => {
-  const { videoUrls, category, page, pageChange } = props;
+  const { videoUrls, category, page, sort, pageChange } = props;
   const contents = [];
+  const [contentSort, setContentSort] = useState(sort);
+  const [contentUrls, setContentUrls] = useState(videoUrls);
+  const [contentValid, setContentValid] = useState(false);
   console.log(category);
   let pageComponentLimit = 7;
   let pageComponent = 0;
   // 해당 페이지에 몇 개의 컨텐츠가 들어갔는지 확인합니다.
   let thisPageComponent = 0;
-  // 전체 컨텐츠를 역순으로 확인합니다.
-  for (let i = Object.keys(videoUrls).length - 1; i >= 0; i--) {
-    // let index = Object.keys(videoUrls).length - i;
-    const videoId = videoUrls[i].videoId;
-    let isInCategory = handleCategory(videoUrls[i].categories, category);
 
-    // 영상 id 가 유효하고, 해당 카테고리에 포함되어있을시, 화면에 보여줍니다.
-    if (videoId && isInCategory) {
-      pageComponent++;
-      let isInPage = handlePage(page, pageComponentLimit, pageComponent);
-      if (isInPage) {
-        thisPageComponent++;
-        contents.push(
-          <Content
-            key={videoUrls[i]._id}
-            id={videoUrls[i]._id}
-            videoId={videoId}
-            title={videoUrls[i].title}
-            channel={videoUrls[i].channel}
-            author={videoUrls[i].author}
-            password={videoUrls[i].password}
-            date={videoUrls[i].date}
-            good={videoUrls[i].good}
-            bad={videoUrls[i].bad}
-          />
-        );
+  useEffect(() => {
+    //인기 순으로 정렬합니다. 이 함수를 실행하지 않을 시, 최근 순으로 정렬됩니다.
+    setContentSort(sort);
+    // console.log(sort);
+    // console.log(contentUrls);
+    let temp = contentUrls.slice();
+    if (sort === "인기 순") {
+      temp.sort(function (a, b) {
+        return a.good - a.bad < b.good - b.bad
+          ? -1
+          : a.good - b.bad > b.good - b.bad
+          ? 1
+          : 0;
+      });
+    } else {
+      temp = videoUrls.slice();
+    }
+    setContentUrls(temp);
+    setContentValid(true);
+    // console.log(temp);
+    return () => {
+      console.log("종료");
+    };
+  }, [sort]);
+  // 전체 컨텐츠를 역순으로 확인합니다.
+  if (contentValid) {
+    for (let i = Object.keys(contentUrls).length - 1; i >= 0; i--) {
+      // let index = Object.keys(videoUrls).length - i;
+      const videoId = contentUrls[i].videoId;
+      let isInCategory = handleCategory(contentUrls[i].categories, category);
+
+      // 영상 id 가 유효하고, 해당 카테고리에 포함되어있을시, 화면에 보여줍니다.
+      if (videoId && isInCategory) {
+        pageComponent++;
+        let isInPage = handlePage(page, pageComponentLimit, pageComponent);
+        if (isInPage) {
+          thisPageComponent++;
+          contents.push(
+            <Content
+              key={contentUrls[i]._id}
+              id={contentUrls[i]._id}
+              videoId={videoId}
+              title={contentUrls[i].title}
+              channel={contentUrls[i].channel}
+              author={contentUrls[i].author}
+              password={contentUrls[i].password}
+              date={contentUrls[i].date}
+              good={contentUrls[i].good}
+              bad={contentUrls[i].bad}
+            />
+          );
+        }
       }
     }
-  }
-  if (thisPageComponent === 0) {
-    if (page > 1) pageChange(page);
-    if (pageComponent === 0) alert("컨텐츠가 비어있습니다.");
-    else alert("마지막 페이지입니다.");
+    if (thisPageComponent === 0) {
+      if (page > 1) pageChange(page);
+      if (pageComponent === 0) alert("컨텐츠가 비어있습니다.");
+      else alert("마지막 페이지입니다.");
+    }
   }
   return contents;
 };
@@ -176,7 +206,7 @@ const Content = (props) => {
     } else {
       history = { goodBad: [] };
     }
-    console.log(history);
+    // console.log(history);
     setClientHistory(history);
   }, [isGoodUpdate, isBadUpdate]);
 
@@ -281,7 +311,7 @@ const Content = (props) => {
             <div
               className="post-bad-wrap"
               onClick={(e) => {
-                console.log(clientHistory);
+                // console.log(clientHistory);
                 if (!isEmpty(clientHistory.goodBad)) {
                   let temp = clientHistory.goodBad;
                   for (let i = 0; i < temp.length; i++) {

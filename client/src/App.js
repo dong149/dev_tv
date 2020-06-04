@@ -8,6 +8,7 @@ import Modal from "./components/Register";
 import Categories from "./components/Categories";
 import axios from "axios";
 import urlService from "./services/urlService.js";
+import Sorts from "./components/Sorts";
 
 const isEmpty = function (value) {
   if (
@@ -28,6 +29,7 @@ const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
   const [category, setCategory] = useState("전체");
+  const [sort, setSort] = useState("인기 순");
   const [page, setPage] = useState(1);
   useEffect(() => {
     const getVideoUrls = async () => {
@@ -84,16 +86,25 @@ const App = () => {
         }}
         currentCategory={category}
       />
+      <Sorts
+        onClick={(text) => {
+          setSort(text);
+          console.log(text);
+        }}
+        currentSort={sort}
+      />
       {!isEmpty(videoUrls) && (
         <>
           <Contents
             videoUrls={videoUrls}
             category={category}
             page={page}
+            sort={sort}
             pageChange={(page) => setPage(page - 1)}
           />
         </>
       )}
+
       <div
         className={`page-btn btn-${btnLoaded ? "visible" : "hidden"}`}
         onLoad={() => setBtnLoaded(true)}
