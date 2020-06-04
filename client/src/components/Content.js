@@ -105,6 +105,16 @@ const Contents = (props) => {
         let isInPage = handlePage(page, pageComponentLimit, pageComponent);
         if (isInPage) {
           thisPageComponent++;
+          let hotContent = false;
+          if (
+            page === 1 &&
+            thisPageComponent >= 1 &&
+            thisPageComponent <= 3 &&
+            sort === "인기 순"
+          ) {
+            hotContent = true;
+          }
+          // console.log(page, thisPageComponent);
           contents.push(
             <Content
               key={contentUrls[i]._id}
@@ -117,6 +127,8 @@ const Contents = (props) => {
               date={contentUrls[i].date}
               good={contentUrls[i].good}
               bad={contentUrls[i].bad}
+              hotContent={hotContent}
+              component={pageComponent}
             />
           );
         }
@@ -142,6 +154,8 @@ const Content = (props) => {
     date,
     good,
     bad,
+    hotContent,
+    component,
   } = props;
   const [postLoaded, setPostLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -243,6 +257,11 @@ const Content = (props) => {
 
   return (
     <>
+      {/* {hotContent && (
+        <div className="post-rank">
+          <span>{component} 등</span>
+        </div>
+      )} */}
       <div
         onClick={() => {
           setIsOpen(!isOpen);
@@ -250,7 +269,9 @@ const Content = (props) => {
             setIsCommentOpen(!isCommentOpen);
           }
         }}
-        className={`post post-${postLoaded ? "visible" : "hidden"}`}
+        className={`post post-${postLoaded ? "visible" : "hidden"} ${
+          hotContent ? "post-hot-content" : "post-content"
+        }`}
         onLoad={() => setPostLoaded(true)}
       >
         <div className="thumbnail-wrap">
