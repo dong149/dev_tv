@@ -350,10 +350,11 @@ const Content = (props) => {
       )}
       {isOpen && videoId && !isCommentOpen && (
         <>
-          <div className="content">
+          <div className="content-iframe-wrap">
             <iframe
-              width="375"
-              height="206"
+              className="content-iframe"
+              // width="375"
+              // height="206"
               src={iframeSrc}
               // src={videoUrl}
               frameBorder="0"
@@ -361,7 +362,8 @@ const Content = (props) => {
               allowFullScreen
               autoPlay="1"
             />
-
+          </div>
+          <div className="content">
             {/* <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} /> */}
             <div className="content-btn-wrap">
               <div
