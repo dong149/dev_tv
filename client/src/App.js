@@ -9,7 +9,9 @@ import Categories from "./components/Categories";
 import axios from "axios";
 import urlService from "./services/urlService.js";
 import Sorts from "./components/Sorts";
-
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import DevRouter from "./components/DevRouter";
 const isEmpty = function (value) {
   if (
     value == "" ||
@@ -24,11 +26,37 @@ const isEmpty = function (value) {
 };
 
 const App = () => {
+  let currentUrl = window.location.href.split("/")[3];
+  let currentCategory;
+  if (currentUrl === "" || currentUrl === "all") {
+    currentCategory = "전체";
+  } else if (currentUrl === "frontend") {
+    currentCategory = "프론트엔드";
+  } else if (currentUrl === "backend") {
+    currentCategory = "백엔드";
+  } else if (currentUrl === "web-develop") {
+    currentCategory = "웹개발";
+  } else if (currentUrl === "app-develop") {
+    currentCategory = "앱개발";
+  } else if (currentUrl === "android") {
+    currentCategory = "안드로이드";
+  } else if (currentUrl === "job") {
+    currentCategory = "취업";
+  } else if (currentUrl === "big-company") {
+    currentCategory = "대기업";
+  } else if (currentUrl === "startup") {
+    currentCategory = "스타트업";
+  } else if (currentUrl === "lol") {
+    currentCategory = "LOL";
+  } else if (currentUrl === "rest") {
+    currentCategory = "기타";
+  }
+
   const [imageLoaded, setImageLoaded] = useState(false);
   const [btnLoaded, setBtnLoaded] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [videoUrls, setVideoUrls] = useState({});
-  const [category, setCategory] = useState("전체");
+  const [category, setCategory] = useState(currentCategory);
   const [sort, setSort] = useState("인기 순");
   const [page, setPage] = useState(1);
   useEffect(() => {
@@ -43,13 +71,6 @@ const App = () => {
     };
     getVideoUrls();
   }, []);
-  // const test = async () => {
-  //   await urlService.getIpAddress().then((res) => {
-  //     console.log("personInfo", res);
-  //   });
-  // };
-  // test();
-
   return (
     <div>
       <div className="logo-wrap">
@@ -135,6 +156,13 @@ const App = () => {
           </a>
         </p>
       </footer>
+      <div>
+        {/* <Link to="/test-a"></Link>
+        <Link to="/frontend"></Link>
+        <Link to="/backend"></Link> */}
+      </div>
+
+      <DevRouter />
     </div>
   );
 };

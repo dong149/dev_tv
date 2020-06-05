@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/category.scss";
 
 const Categories = (props) => {
@@ -8,6 +9,7 @@ const Categories = (props) => {
     <div className="categories">
       <Category
         category="전체"
+        text="all"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -16,6 +18,7 @@ const Categories = (props) => {
       />
       <Category
         category="프론트엔드"
+        text="frontend"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -24,6 +27,7 @@ const Categories = (props) => {
       />
       <Category
         category="백엔드"
+        text="backend"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -32,6 +36,7 @@ const Categories = (props) => {
       />
       <Category
         category="웹 개발"
+        text="web-develop"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -40,6 +45,7 @@ const Categories = (props) => {
       />
       <Category
         category="앱 개발"
+        text="app-develop"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -48,6 +54,7 @@ const Categories = (props) => {
       />
       <Category
         category="iOS"
+        text="ios"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -56,6 +63,7 @@ const Categories = (props) => {
       />
       <Category
         category="안드로이드"
+        text="android"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -64,6 +72,7 @@ const Categories = (props) => {
       />
       <Category
         category="취업"
+        text="job"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -72,6 +81,7 @@ const Categories = (props) => {
       />
       <Category
         category="대기업"
+        text="big-company"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -80,6 +90,7 @@ const Categories = (props) => {
       />
       <Category
         category="스타트업"
+        text="startup"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -88,6 +99,7 @@ const Categories = (props) => {
       />
       <Category
         category="LOL"
+        text="lol"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -96,6 +108,7 @@ const Categories = (props) => {
       />
       <Category
         category="기타"
+        text="rest"
         onClick={(text) => {
           onClick(text);
           pageReset();
@@ -108,7 +121,7 @@ const Categories = (props) => {
 
 const Category = (props) => {
   const [categoryClick, setCategoryClick] = useState(false);
-  const { category, onClick, currentCategory } = props;
+  const { category, text, onClick, currentCategory } = props;
   useEffect(() => {
     if (currentCategory !== category) {
       setCategoryClick(false);
@@ -116,6 +129,7 @@ const Category = (props) => {
       setCategoryClick(true);
     }
   }, [currentCategory]);
+  let link = `/${text}`;
   return categoryClick ? (
     <div
       className="category-click"
@@ -126,15 +140,17 @@ const Category = (props) => {
       <span>{category}</span>
     </div>
   ) : (
-    <div
-      className="category"
-      onClick={() => {
-        setCategoryClick(!categoryClick);
-        onClick(category);
-      }}
-    >
-      <span>{category}</span>
-    </div>
+    <Link to={link} style={{ textDecoration: "none", color: "black" }}>
+      <div
+        className="category"
+        onClick={() => {
+          setCategoryClick(!categoryClick);
+          onClick(category);
+        }}
+      >
+        <span>{category}</span>
+      </div>
+    </Link>
   );
 };
 
