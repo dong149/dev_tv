@@ -75,8 +75,8 @@ const App = () => {
     <div>
       <div className="logo-wrap">
         <img
-          src="./devtv.jpg"
-          alt="logo"
+          src="https://devtv.club/devtv.jpg"
+          alt="devtv-logo-데브티비 로고"
           className={`smooth-image image-${imageLoaded ? "visible" : "hidden"}`}
           onLoad={() => setImageLoaded(true)}
         />
@@ -137,10 +137,18 @@ const App = () => {
           }}
           onLoad={() => setBtnLoaded(true)}
         >
-          <img className="page-btn-left" src="./left.png" alt="left" />
+          <img
+            className="page-btn-left"
+            src="https://devtv.club/left.png"
+            alt="left"
+          />
         </div>
         <div className="page-btn-right-wrap" onClick={() => setPage(page + 1)}>
-          <img className="page-btn-right" src="./right.png" alt="right" />
+          <img
+            className="page-btn-right"
+            src="https://devtv.club/right.png"
+            alt="right"
+          />
         </div>
       </div>
 
