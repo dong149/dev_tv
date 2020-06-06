@@ -31,9 +31,14 @@ const Meta = ({ data }) => {
       {description ? (
         <meta property="og:description" content={description} />
       ) : null}
+      <meta
+        name="keywords"
+        content="개발, 영상, 강의,개발영상, 개발강의, 윈도우, 백신,웹개발, 앱개발,소프트웨어,컴퓨터공학,안드로이드,아이폰,아마존,애플,이클립스,리액트,자바,c언어,c++,깃허브,프로그래머,보안전문가,컴공과,컴공,어도비,디자인,호스팅,스타트업,취업,외주,동빈나,노마드코더"
+      />
       {canonical ? <meta property="og:url" content={canonical} /> : null}
       <meta property="og:locale" content={locales[lang]} />
       <meta property="og:type" content={type} />
+
       {image ? <meta property="og:image" content={image} /> : null}
       {/* {width ? <meta property="og:image:width" content={width} /> : null}
         {height ? <meta property="og:image:height" content={height} /> : null} */}

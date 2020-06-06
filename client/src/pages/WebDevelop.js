@@ -3,7 +3,9 @@ import Meta from "../components/Meta";
 
 export default function WebDevelop() {
   const metaData = {
-    title: "devtv.club 데브티비 - 프론트엔드",
+    title: "DevTV.club 데브티비 - 웹 개발",
+    description:
+      "개발 영상, 개발 커뮤니티, 개발자, 영상 모음, 유튜브, 추천, 사이트",
   };
   return (
     <>
