@@ -110,7 +110,7 @@ const Modal = (props) => {
       <div className="modal">
         <div className="modal-img-wrap">
           <img
-            src="./register.jpg"
+            src="/register.jpg"
             alt="modal-img"
             className={`smooth-image image-${
               imageLoaded ? "visible" : "hidden"
