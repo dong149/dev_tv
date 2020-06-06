@@ -6,7 +6,9 @@ export default function AppDevelop() {
     title: "DevTV.club 데브티비 - 앱 개발",
     description:
       "개발 영상, 개발 커뮤니티, 개발자, 영상 모음, 유튜브, 추천, 사이트",
+    type: "website",
   };
+
   return (
     <>
       <Meta data={metaData} />
