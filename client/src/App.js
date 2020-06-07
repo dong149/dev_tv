@@ -145,13 +145,13 @@ const App = () => {
       </div>
 
       <footer className="footer">
-        <ins
+        {/* <ins
           class="kakao_ad_area"
           style={{ display: "none" }}
           data-ad-unit="DAN-urxgpcqve3xe"
           data-ad-width="320"
           data-ad-height="100"
-        ></ins>
+        ></ins> */}
         <p>
           왼손잡이들&nbsp;&nbsp;|&nbsp;&nbsp;
           <a className="footer-info" href="./devtv.club.html">
