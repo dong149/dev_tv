@@ -74,12 +74,16 @@ const App = () => {
   return (
     <div>
       <div className="logo-wrap">
-        <img
-          src="/devtv.jpg"
-          alt="devtv-logo-데브티비 로고"
-          className={`smooth-image image-${imageLoaded ? "visible" : "hidden"}`}
-          onLoad={() => setImageLoaded(true)}
-        />
+        <a href="https://devtv.club">
+          <img
+            src="/devtv.jpg"
+            alt="devtv-logo-데브티비 로고"
+            className={`smooth-image image-${
+              imageLoaded ? "visible" : "hidden"
+            }`}
+            onLoad={() => setImageLoaded(true)}
+          />
+        </a>
       </div>
       {isOpenModal && (
         <>
