@@ -152,6 +152,7 @@ const App = () => {
           data-ad-width="320"
           data-ad-height="100"
         ></ins>
+
         <p>
           왼손잡이들&nbsp;&nbsp;|&nbsp;&nbsp;
           <a className="footer-info" href="./devtv.club.html">
