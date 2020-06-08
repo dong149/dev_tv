@@ -62,7 +62,7 @@ const Contents = (props) => {
   const [contentSort, setContentSort] = useState(sort);
   const [contentUrls, setContentUrls] = useState(videoUrls);
   const [contentValid, setContentValid] = useState(false);
-  console.log(category);
+  // console.log(category);
   let pageComponentLimit = 7;
   let pageComponent = 0;
   // 해당 페이지에 몇 개의 컨텐츠가 들어갔는지 확인합니다.
@@ -172,7 +172,7 @@ const Content = (props) => {
     event.target.pauseVideo();
   };
   const iframeSrc = `https://www.youtube.com/embed/${videoId}`;
-  const thumbnailSrc = `http://img.youtube.com/vi/${videoId}/0.jpg`;
+  const thumbnailSrc = `https://img.youtube.com/vi/${videoId}/0.jpg`;
   useEffect(() => {
     const getComments = async () => {
       try {

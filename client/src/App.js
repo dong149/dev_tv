@@ -146,7 +146,7 @@ const App = () => {
 
       <footer className="footer">
         <ins
-          class="kakao_ad_area"
+          className="kakao_ad_area"
           // style={{ display: "none" }}
           data-ad-unit="DAN-urxgpcqve3xe"
           data-ad-width="320"
