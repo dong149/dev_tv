@@ -89,7 +89,7 @@ const Contents = (props) => {
     setContentValid(true);
     // console.log(temp);
     return () => {
-      console.log("종료");
+      // console.log("종료");
     };
   }, [sort]);
   // 전체 컨텐츠를 역순으로 확인합니다.
@@ -191,7 +191,6 @@ const Content = (props) => {
   }, [isCommentUpdate]);
 
   useEffect(() => {
-    console.log("touch");
     const changeGoodBad = async () => {
       try {
         if (isGoodUpdate) {

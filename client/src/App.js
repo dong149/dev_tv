@@ -12,6 +12,8 @@ import Sorts from "./components/Sorts";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import DevRouter from "./components/DevRouter";
+import TrendNews from "./components/TrendNews";
+import trendNewsService from "./services/trendNewsService";
 const isEmpty = function (value) {
   if (
     value == "" ||
@@ -59,6 +61,7 @@ const App = () => {
   const [category, setCategory] = useState(currentCategory);
   const [sort, setSort] = useState("인기 순");
   const [page, setPage] = useState(1);
+  const [newsContents, setNewsContents] = useState([]);
   useEffect(() => {
     const getVideoUrls = async () => {
       try {
@@ -69,8 +72,28 @@ const App = () => {
         console.log(err);
       }
     };
+    const getTrendNewsId = async () => {
+      try {
+        let newsArray = [];
+        const promises = [];
+        let res = await trendNewsService.getNewsID();
+        for (let i = 0; i < 10; i++) {
+          promises.push(trendNewsService.getNewsInfo(res[i]));
+        }
+        await Promise.all(promises).then((res) => {
+          for (let i = 0; i < 10; i++) {
+            newsArray.push({ content: res[i], rank: i + 1 });
+          }
+        });
+        setNewsContents(newsArray);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getTrendNewsId();
     getVideoUrls();
   }, []);
+
   return (
     <div>
       <div className="logo-wrap">
@@ -104,7 +127,7 @@ const App = () => {
       <Categories
         onClick={(text) => {
           setCategory(text);
-          console.log(text);
+          // console.log(text);
         }}
         pageReset={() => {
           setPage(1);
@@ -114,7 +137,7 @@ const App = () => {
       <Sorts
         onClick={(text) => {
           setSort(text);
-          console.log(text);
+          // console.log(text);
         }}
         currentSort={sort}
       />
@@ -148,6 +171,14 @@ const App = () => {
         </div>
       </div>
 
+      {!isEmpty(newsContents) && (
+        <>
+          <div className="trendNews">
+            <span>Dev News Top 10</span>
+          </div>
+          <TrendNews contents={newsContents} />
+        </>
+      )}
       <footer className="footer">
         <ins
           className="kakao_ad_area"
@@ -173,7 +204,6 @@ const App = () => {
         <Link to="/frontend"></Link>
         <Link to="/backend"></Link> */}
       </div>
-
       <DevRouter />
     </div>
   );
