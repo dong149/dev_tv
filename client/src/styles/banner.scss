@@ -7,7 +7,15 @@
   height: 100px;
   //   top: 0;
   //   left: 0;
-  background-image: url("/njob.png");
+  transition: opacity 1s;
+  &-visible {
+    background-image: url("/njob.png");
+    opacity: 1;
+  }
+  &-hidden {
+    opacity: 0;
+  }
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -15,8 +23,15 @@
   color: white;
   //   background-color: black;
   .banner-center {
-    .banner-logo {
+    .banner-logo-smooth {
+      transition: opacity 2s;
+    }
+    .banner-logo-visible {
       width: 375px;
+      opacity: 1;
+    }
+    .banner-logo-hidden {
+      opacity: 0;
     }
   }
 }
@@ -24,7 +39,7 @@
 @include mobile {
   .banner {
     .banner-center {
-      .banner-logo {
+      .banner-logo-visible {
         width: 300px;
       }
     }
