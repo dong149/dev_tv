@@ -25,7 +25,7 @@ const Meta = ({ data }) => {
 
       <meta
         property="og:site_name"
-        content="devtv.club 데브티비 - 개발 영상 공유, 추천"
+        content="devtv.club 데브티비 - 부업 Njob 투잡"
       />
       <meta property="og:title" content={title} />
       {description ? (
@@ -33,7 +33,7 @@ const Meta = ({ data }) => {
       ) : null}
       <meta
         name="keywords"
-        content="개발, 영상, 강의,개발영상, 개발강의, 윈도우, 백신,웹개발, 앱개발,소프트웨어,컴퓨터공학,안드로이드,아이폰,아마존,애플,이클립스,리액트,자바,c언어,c++,깃허브,프로그래머,보안전문가,컴공과,컴공,어도비,디자인,호스팅,스타트업,취업,외주,동빈나,노마드코더"
+        content="부업,투잡,직장인,부수입,월100만원,스마트스토어,스마트팜,아마존셀러,쿠팡,11번가,pdf,앱개발,웹개발,쇼핑몰"
       />
       {canonical ? <meta property="og:url" content={canonical} /> : null}
       <meta property="og:locale" content={locales[lang]} />

@@ -122,7 +122,7 @@ const App = () => {
         </div>
         <div className="report-btn">
           <div className="report-wrap">
-            <span className="report-text">트렌드 뉴스</span>
+            <span className="report-text">추천 채널</span>
           </div>
           <div className="new">
             <span className="new-text">NEW</span>
