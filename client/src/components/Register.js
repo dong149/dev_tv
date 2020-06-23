@@ -208,7 +208,7 @@ const Modal = (props) => {
             value={videoUrl}
             maxLength="50"
             onChange={(e) => setVideoUrl(e.target.value)}
-            placeholder="http://"
+            placeholder="https://"
             onKeyPress={onKeyPress}
           />
           <p className="modal-input-label">제목</p>
