@@ -26,9 +26,10 @@
   margin-bottom: 3vh;
   width: 375px;
   font-family: $spoqa-han-sans;
+  display: table;
   .submit-btn {
     width: 50%;
-    display: inline-block;
+    display: table-cell;
     font-size: 18px;
     text-align: center;
     &:hover {
@@ -39,16 +40,55 @@
   }
   .report-btn {
     width: 50%;
-    display: inline-block;
+    display: table-cell;
     font-size: 18px;
     text-align: center;
+    cursor: pointer;
+    .report-wrap {
+      display: inline;
+      .report-text {
+      }
+    }
     &:hover {
+      .report-wrap {
+        font-weight: bold;
+      }
+    }
+    .new {
+      // display: table-cell;
+      display: inline;
+      background-color: red;
+      font-size: 10px;
       font-weight: bold;
-      color: #f13c20;
-      cursor: pointer;
+      color: white;
+      margin-left: 3px;
+
+      // padding-top: 2px;
+      padding-left: 4px;
+      padding-right: 4px;
+      // padding-bottom: 2px;
+
+      .new-text {
+      }
     }
   }
 }
+
+.hotContent {
+  background-color: black;
+  font-size: 16px;
+  color: white;
+  width: 57px;
+  font-style: $spoqa-han-sans;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .page-btn {
   margin: 0 auto;
   margin-top: 60px;

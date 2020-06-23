@@ -72,25 +72,25 @@ const App = () => {
         console.log(err);
       }
     };
-    const getTrendNewsId = async () => {
-      try {
-        let newsArray = [];
-        const promises = [];
-        let res = await trendNewsService.getNewsID();
-        for (let i = 0; i < 10; i++) {
-          promises.push(trendNewsService.getNewsInfo(res[i]));
-        }
-        await Promise.all(promises).then((res) => {
-          for (let i = 0; i < 10; i++) {
-            newsArray.push({ content: res[i], rank: i + 1 });
-          }
-        });
-        setNewsContents(newsArray);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getTrendNewsId();
+    // const getTrendNewsId = async () => {
+    //   try {
+    //     let newsArray = [];
+    //     const promises = [];
+    //     let res = await trendNewsService.getNewsID();
+    //     for (let i = 0; i < 10; i++) {
+    //       promises.push(trendNewsService.getNewsInfo(res[i]));
+    //     }
+    //     await Promise.all(promises).then((res) => {
+    //       for (let i = 0; i < 10; i++) {
+    //         newsArray.push({ content: res[i], rank: i + 1 });
+    //       }
+    //     });
+    //     setNewsContents(newsArray);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // getTrendNewsId();
     getVideoUrls();
   }, []);
 
@@ -121,7 +121,12 @@ const App = () => {
           <span>등록하기</span>
         </div>
         <div className="report-btn">
-          <span>신고하기</span>
+          <div className="report-wrap">
+            <span className="report-text">트렌드 뉴스</span>
+          </div>
+          <div className="new">
+            <span className="new-text">NEW</span>
+          </div>
         </div>
       </div>
       <Categories
@@ -143,6 +148,11 @@ const App = () => {
       />
       {!isEmpty(videoUrls) && (
         <>
+          {sort === "인기 순" && page === 1 && (
+            <div className="hotContent">
+              <span>BEST</span>
+            </div>
+          )}
           <Contents
             videoUrls={videoUrls}
             category={category}
@@ -171,14 +181,14 @@ const App = () => {
         </div>
       </div>
 
-      {!isEmpty(newsContents) && (
+      {/* {!isEmpty(newsContents) && (
         <>
           <div className="trendNews">
             <span>Dev News Top 10</span>
           </div>
           <TrendNews contents={newsContents} />
         </>
-      )}
+      )} */}
       <footer className="footer">
         <ins
           className="kakao_ad_area"

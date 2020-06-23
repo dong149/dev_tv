@@ -258,9 +258,16 @@ const Content = (props) => {
     <>
       {/* {hotContent && (
         <div className="post-rank">
-          <span>{component} 등</span>
+          <span>{component}</span>
         </div>
       )} */}
+      {hotContent && (
+        <div className="post-rank">
+          <div className="post-rank-wrap">
+            <span>{component}</span>
+          </div>
+        </div>
+      )}
       <div
         onClick={() => {
           setIsOpen(!isOpen);
@@ -274,7 +281,12 @@ const Content = (props) => {
         onLoad={() => setPostLoaded(true)}
       >
         <div className="thumbnail-wrap">
-          <img className="thumbnail" src={thumbnailSrc} alt="thumbnail" />
+          <img
+            className="thumbnail"
+            src={thumbnailSrc}
+            alt="thumbnail"
+            border="0"
+          />
         </div>
         <div className="post-content">
           <div className="post-title-wrap">

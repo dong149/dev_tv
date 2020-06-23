@@ -5,7 +5,7 @@ export default function Rest() {
   const metaData = {
     title: "DevTV.club 데브티비 - 기타",
     description:
-      "개발 영상, 개발 커뮤니티, 개발자, 영상 모음, 유튜브, 추천, 사이트",
+      "부업 NJOB 투잡 직장인 부수입 월 100만원 500만원 1000만원 스마트 스토어 아마존 쿠팡 11번가 셀러 pdf 영상 추천 트렌드 분석",
     type: "website",
   };
   return (

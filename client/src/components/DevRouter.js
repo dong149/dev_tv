@@ -11,12 +11,25 @@ import BigCompany from "../pages/BigCompany";
 import Startup from "../pages/Startup";
 import Lol from "../pages/Lol";
 import Rest from "../pages/Rest";
-
+import SmartStore from "../pages/SmartStore";
+import Coupang from "../pages/Coupang";
+import Amazon from "../pages/Amazon";
+import Pdf from "../pages/Pdf";
+import Ten from "../pages/Ten";
+import Hundred from "../pages/Hundred";
+import Thousand from "../pages/Thousand";
 export default function DevRouter() {
   return (
     <div>
       <Switch>
         {/* <Route path="/" exact="true" component={all} /> */}
+        <Route path="/smartstore" exact={true} component={SmartStore} />
+        <Route path="/coupang" exact={true} component={Coupang} />
+        <Route path="/amazon" exact={true} component={Amazon} />
+        <Route path="/pdf" exact={true} component={Pdf} />
+        <Route path="/ten" exact={true} component={Ten} />
+        <Route path="/hundred" exact={true} component={Hundred} />
+        <Route path="/thousand" exact={true} component={Thousand} />
         <Route path="/frontend" exact={true} component={Frontend} />
         <Route path="/backend" exact={true} component={Backend} />
         <Route path="/web-develop" exact={true} component={WebDevelop} />

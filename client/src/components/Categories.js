@@ -17,6 +17,69 @@ const Categories = (props) => {
         currentCategory={currentCategory}
       />
       <Category
+        category="스마트스토어"
+        text="smartstore"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="쿠팡"
+        text="coupang"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="아마존셀러"
+        text="amazon"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="pdf"
+        text="pdf"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="월10만"
+        text="ten"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="월100만"
+        text="hundred"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
+        category="월1000만"
+        text="thousand"
+        onClick={(text) => {
+          onClick(text);
+          pageReset();
+        }}
+        currentCategory={currentCategory}
+      />
+      <Category
         category="프론트엔드"
         text="frontend"
         onClick={(text) => {

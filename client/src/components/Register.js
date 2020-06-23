@@ -130,6 +130,34 @@ const Modal = (props) => {
         <div className="modal-input-wrap">
           <p className="modal-input-label">카테고리</p>
           <Category
+            category={"스마트스토어"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"쿠팡"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"아마존셀러"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"pdf"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"월10만"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"월100만"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
+            category={"월1000만"}
+            onClick={(text, isClicked) => handleCategory(text, isClicked)}
+          />
+          <Category
             category={"프론트엔드"}
             onClick={(text, isClicked) => handleCategory(text, isClicked)}
           />
