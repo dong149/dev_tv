@@ -14,6 +14,8 @@ import { Helmet } from "react-helmet";
 import DevRouter from "./components/DevRouter";
 import TrendNews from "./components/TrendNews";
 import trendNewsService from "./services/trendNewsService";
+import Official from "./components/Official";
+import Banner from "./components/Banner";
 const isEmpty = function (value) {
   if (
     value == "" ||
@@ -96,6 +98,7 @@ const App = () => {
 
   return (
     <div>
+      <Banner />
       <div className="logo-wrap">
         <a href="https://devtv.club">
           <img
