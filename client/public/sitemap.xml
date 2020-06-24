@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://devtv.club</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/coupang</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/amazon</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/pdf</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/ten</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/hundred</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/thousand</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/frontend</loc><priority>0.5</priority></url>
 <url><loc>https://devtv.club/backend</loc><priority>0.5</priority></url>
 <url><loc>https://devtv.club/web-develop</loc><priority>0.5</priority></url>
 <url><loc>https://devtv.club/app-develop</loc><priority>0.5</priority></url>
@@ -13,5 +20,5 @@
 <url><loc>https://devtv.club/rest</loc><priority>0.5</priority></url>
 <url><loc>https://devtv.club/./devtv.club.html</loc><priority>0.5</priority></url>
 <url><loc>https://devtv.club/all</loc><priority>0.5</priority></url>
-<url><loc>https://devtv.club/frontend</loc><priority>0.5</priority></url>
+<url><loc>https://devtv.club/smartstore</loc><priority>0.5</priority></url>
 </urlset>
